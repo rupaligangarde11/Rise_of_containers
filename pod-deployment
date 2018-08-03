@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+    name: metadataservice-app
+    labels:
+        app: web
+spec:
+    containers:
+        - name: metadataservice-test
+          image: metadataservice-alpine
+          ports:
+            -  containerPort: 8080
+          imagePullPolicy: Never
