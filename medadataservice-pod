@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+    name: metadataservice-without-mongo-app
+    labels:
+        app: metadata-label 
+spec:
+    containers:
+        - name: metadataservice-without-mongo
+          image: metadataservice-without-mongo-alpine
+          ports:
+            -  containerPort: 8080
+          imagePullPolicy: Never
