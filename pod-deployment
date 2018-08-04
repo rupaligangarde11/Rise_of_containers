@@ -1,13 +1,12 @@
 apiVersion: v1
-kind: Pod
-metadata: 
-    name: metadataservice-app
-    labels:
-        app: web
+kind: Service
+metadata:
+  name: metadata-service
 spec:
-    containers:
-        - name: metadataservice-test
-          image: metadataservice-alpine
-          ports:
-            -  containerPort: 8080
-          imagePullPolicy: Never
+  selector:
+    app: web
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
